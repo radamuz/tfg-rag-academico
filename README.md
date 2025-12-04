@@ -160,7 +160,7 @@ CHUNK_OVERLAP=200
 - **Imágenes**: solo se indexa texto; figuras y gráficos no se “leen”.
 - **Dependencia de OpenAI**: requiere cuota activa para embeddings/LLM.
 - **Bloqueo de archivos en Windows**: si Chroma está abierto por la UI, puede fallar el reindexado. Cierra la UI o usa el botón “Reconstruir índice”.
-
+````
 ---
 
 ## Buenas prácticas
@@ -184,10 +184,10 @@ Ajustar chunking según el tipo de documento (tablas, guías largas, etc.).
 
 - **ModuleNotFoundError / `streamlit` no se reconoce**  
    Activa el venv e instala deps:
-  ```bat
   .\.venv\Scripts\activate
   pip install -r requirements.txt
   429 / cuota excedida
+  
   Revisa billing en OpenAI y el modelo configurado.
   streamlit no se reconoce → ejecuta con:
   python -m streamlit run ui/app_streamlit.py
