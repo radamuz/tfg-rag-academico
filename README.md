@@ -89,12 +89,12 @@ requirements.txt
 requirements_lock.txt
 LICENSE
 README.md
+````
 
 ## Instalación
 
 ### Opción A (normal, recomendada)
 
-```bat
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
@@ -105,7 +105,6 @@ python -m venv .venv
 pip install -r requirements_lock.txt
 copy .env.example .env   & rem añade tu OPENAI_API_KEY
 
-````
 
 ## Uso
 
