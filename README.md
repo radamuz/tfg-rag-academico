@@ -39,15 +39,27 @@ Incluye ingesta, indexado **versionado** con Chroma, recuperación por similitud
 
 ---
 
-## Arquitectura
+### Arquitectura
+
+```mermaid
+flowchart LR
+  RAW["PDFs (data/raw)"] --> ING["Ingesta + Split"]
+  ING --> EMB["Embeddings (OpenAI)"]
+  EMB --> CHR["Chroma (índice versionado)"]
+
+  Q["Consulta del usuario"] --> RET["Recuperación (Sim / MMR)"]
+  CHR <-- vectores --> RET
+  RET --> PROMPT["Prompt estructurado"]
+  PROMPT --> LLM["LLM (gpt-4.1-mini)"]
+  LLM --> RESP["Respuesta + Citas a página"]
 
 PDFs (data/raw)
-   └─ Ingesta + Split
-        ├─ Embeddings (OpenAI) → Chroma  ←─┐
-        │                                 │  (índice versionado)
-        └─ Recuperación (Sim / MMR) ──┬───┘
-                                       └─ Prompt estructurado + LLM → Respuesta + Citas a página
+└─ Ingesta + Split
+└─ Embeddings (OpenAI)
+└─ Chroma [índice versionado]
 
+Consulta ──► Recuperación (Sim / MMR) ◄──── Chroma
+└─ Prompt ──► LLM ──► Respuesta + Citas
 ---
 
 ## Quickstart
@@ -123,10 +135,10 @@ Edita eval/preguntas.csv (id,pregunta).
 
 1. Ejecuta el runner:
    python eval\run_eval.py
-Genera eval/resultados_YYYYMMDD_HHMMSS.csv con: respuesta, tiempo_ms, fuentes_json, índice…
+      Genera eval/resultados_YYYYMMDD_HHMMSS.csv con: respuesta, tiempo_ms, fuentes_json, índice…
 2. Calcula métricas:
    python eval\metricas.py
-Muestra % de acierto (exacto/parcial) y tiempo medio (detecta el último CSV automáticamente). 
+      Muestra % de acierto (exacto/parcial) y tiempo medio (detecta el último CSV automáticamente). 
 
 ## Configuración (.env)
 
