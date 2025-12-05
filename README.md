@@ -100,6 +100,7 @@ python -m venv .venv
 pip install -r requirements.txt
 copy .env.example .env   & rem añade tu OPENAI_API_KEY
 
+Opción B (reproducible 1:1)
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements_lock.txt
