@@ -191,7 +191,7 @@ Ajustar chunking según el tipo de documento (tablas, guías largas, etc.).
   Revisa billing en OpenAI y el modelo configurado.
   streamlit no se reconoce → ejecuta con:
   python -m streamlit run ui/app_streamlit.py
-  ```
+  
 
 WinError 32 al reindexar (archivo en uso)
 Cierra Streamlit y vuelve a ejecutar:
@@ -215,14 +215,6 @@ Guarda los .py en UTF-8 y asegúrate de que la consola usa UTF-8.
 
 ---
 
-## Roadmap
-
-- OCR opcional (Tesseract/PyMuPDF-ocr) para PDFs escaneados.
-- Exportar respuestas + citas a PDF/Markdown desde la UI.
-- Soporte para colecciones múltiples de índices (proyectos).
-
----
-
 ## Licencia
 
 Este proyecto se distribuye bajo licencia MIT. Ver LICENSE
@@ -233,4 +225,4 @@ Este proyecto se distribuye bajo licencia MIT. Ver LICENSE
 
 Autor: Cristian (FingFangFung)
 Stack: Python, LangChain, OpenAI, ChromaDB, Streamlit.
-````
+
