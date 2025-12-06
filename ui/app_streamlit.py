@@ -72,12 +72,24 @@ with st.sidebar:
     # Accesos rápidos a carpetas
     if st.button("📂 Abrir carpeta RAW"):
         import subprocess
+        import platform
 
-        subprocess.Popen(rf'explorer "{RAW_DIR}"')
+        if platform.system() == "Windows":
+            subprocess.Popen(rf'explorer "{RAW_DIR}"')
+        elif platform.system() == "Darwin":  # macOS
+            subprocess.Popen(["open", str(RAW_DIR)])
+        else:  # Linux and others
+            subprocess.Popen(["xdg-open", str(RAW_DIR)])
     if st.button("📂 Abrir carpeta ÍNDICES"):
         import subprocess
+        import platform
 
-        subprocess.Popen(rf'explorer "{CFG_INDEX_DIR}"')
+        if platform.system() == "Windows":
+            subprocess.Popen(rf'explorer "{CFG_INDEX_DIR}"')
+        elif platform.system() == "Darwin":  # macOS
+            subprocess.Popen(["open", str(CFG_INDEX_DIR)])
+        else:  # Linux and others
+            subprocess.Popen(["xdg-open", str(CFG_INDEX_DIR)])
 
     st.divider()
     st.header("Ajustes de consulta")
