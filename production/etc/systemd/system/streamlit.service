@@ -1,0 +1,15 @@
+[Unit]
+Description=Streamlit App
+After=network.target
+
+[Service]
+User=app
+WorkingDirectory=/home/app/app
+
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+
+ExecStart=/home/app/app/.venv/bin/python -m streamlit run ui/app_streamlit.py
+
+[Install]
+WantedBy=multi-user.target
