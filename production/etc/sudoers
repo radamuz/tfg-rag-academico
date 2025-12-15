@@ -1,0 +1,2 @@
+# Allow user 'app' to restart the Streamlit service without a password
+app ALL=(root) NOPASSWD: /bin/systemctl restart streamlit

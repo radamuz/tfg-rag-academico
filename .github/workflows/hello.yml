@@ -14,3 +14,14 @@ jobs:
     steps:
     - name: Say Hello
       run: echo hola
+      
+    - name: Navigate to app directory
+      run: cd /home/app/app
+      
+    - name: Pull latest changes
+      run: |
+        cd /home/app/app
+        git pull
+        
+    - name: Restart Streamlit service
+      run: sudo systemctl restart streamlit
