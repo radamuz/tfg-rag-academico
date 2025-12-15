@@ -31,3 +31,19 @@ sudo apt install caddy
 ```bash
 sudo systemctl restart caddy
 ```
+
+## Arrancar servicio GitHub Runner
+
+* Copia etc/systemd/system/github-runner.service en la ruta del servidor /etc/systemd/system/github-runner.service
+
+* Recarga el demonio de systemctl, habilitalo para que inicie cuando arranque la máquina y arranca ahora github-runner:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable github-runner
+sudo systemctl start github-runner
+```
+
+* Comprueba el estado
+```bash
+sudo systemctl status github-runner
+```
