@@ -25,9 +25,9 @@ except Exception:
 
 # --- Page config ---
 st.set_page_config(
-    page_title="Asistente RAG – Documentación técnica", page_icon="🧠", layout="wide"
+    page_title="K DISE", page_icon="🧠", layout="wide"
 )
-st.title("🧠 Asistente RAG – Documentación técnica")
+st.title("🧠 K DISE")
 
 # --- Carga de documentos desde la UI ---
 st.subheader("Añadir documentos")
