@@ -41,15 +41,15 @@ Incluye ingesta, indexado **versionado** con Chroma, recuperación por similitud
 ## Arquitectura
 ```mermaid
 flowchart TD
-  raw["PDFs (data/raw)"] --> ingest["Ingesta + Split"]
-  ingest --> embed["Embeddings (OpenAI)"]
-  embed --> chroma["Chroma (índice versionado)"]
+raw["PDFs (data/raw)"] --> ingest["Ingesta + Split"]
+ingest --> embed["Embeddings (OpenAI)"]
+embed --> chroma["Chroma (índice versionado)"]
 
-  user["Consulta del usuario"] --> retrieve["Recuperación (Sim / MMR)"]
-  chroma <-. vectores .-> retrieve
-  retrieve --> prompt["Prompt estructurado"]
-  prompt --> llm["LLM (gpt-4.1-mini)"]
-  llm --> answer["Respuesta + Citas"]
+user["Consulta del usuario"] --> retrieve["Recuperación (Sim / MMR)"]
+chroma <-. vectores .-> retrieve
+retrieve --> prompt["Prompt estructurado"]
+prompt --> llm["LLM (gpt-4.1-mini)"]
+llm --> answer["Respuesta + Citas"]
 ```
 ---
 
